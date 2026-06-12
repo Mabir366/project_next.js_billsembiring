@@ -16,7 +16,7 @@ Proyek ini dibuat sebagai bagian dari tugas mata kuliah pengembangan web, dengan
 
 | Keterangan | Detail |
 |---|---|
-| **Nama** | BillStephen |
+| **Nama** | Bill Stephen JAcob Sembiring |
 | **Topik Tugas** | Routing dan Navigation |
 | **Framework** | Next.js 14 (App Router) |
 | **Styling** | Tailwind CSS v4 |
@@ -25,35 +25,20 @@ Proyek ini dibuat sebagai bagian dari tugas mata kuliah pengembangan web, dengan
 
 ## 🗂️ Struktur Proyek
 src/
-
 └── app/
-
 ├── layout.js                  → Root layout + Navbar global
-
 ├── page.js                    → Halaman Home (/)
-
 ├── not-found.js               → Halaman 404 custom
-
 ├── components/
-
 │   ├── Navbar.js              → Komponen navigasi responsif
-
 │   └── BlogCard.js            → Komponen kartu artikel
-
 ├── data/
-
 │   └── blogs.js               → Data artikel (dummy)
-
 ├── blog/
-
 │   ├── page.js                → Halaman daftar artikel (/blog)
-
 │   └── [id]/
-
 │       └── page.js            → Halaman detail artikel (/blog/:id) ← DYNAMIC
-
 └── about/
-
 └── page.js                → Halaman tentang (/about)
 
 ---
@@ -110,9 +95,7 @@ Ini adalah inti dari proyek ini. Berikut penjelasan lengkap implementasinya:
 
 Static route adalah halaman dengan URL tetap yang tidak berubah. Di Next.js App Router, setiap folder di dalam `app/` yang memiliki file `page.js` otomatis menjadi sebuah route.
 app/page.js         →  /          (Home)
-
 app/blog/page.js    →  /blog      (Blog List)
-
 app/about/page.js   →  /about     (About)
 
 Tidak perlu konfigurasi tambahan — Next.js mendeteksi otomatis berdasarkan struktur folder.
@@ -128,9 +111,7 @@ app/blog/[id]/page.js
 
 Folder `[id]` dengan kurung siku adalah sintaks dynamic segment di Next.js. Nilai `id` akan berubah sesuai URL yang diakses:
 URL: /blog/1   →  params.id = "1"
-
 URL: /blog/2   →  params.id = "2"
-
 URL: /blog/3   →  params.id = "3"
 
 **Kode implementasi di `app/blog/[id]/page.js`:**
