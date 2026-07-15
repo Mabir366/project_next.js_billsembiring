@@ -1,29 +1,29 @@
-import { Inter } from 'next/font/google'
+import '@mantine/core/styles.css'
+import '@mantine/notifications/styles.css'
 import './globals.css'
-import Navbar from './components/Navbar'
 
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from 'next'
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
+import { Notifications } from '@mantine/notifications'
+import { tema } from '@/pustaka/tema'
+import { Navbar } from '@/komponen/Navbar'
 
-export const metadata = {
-  title: 'TechBlog — Next.js Dynamic Routing',
-  description: 'Blog teknologi dengan Next.js App Router',
+export const metadata: Metadata = {
+  title: 'RuangRasa',
+  description: 'Ruang aman buat cerita bareng Rasa',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode   // ← Tambahan ini yang fix error-nya!
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <body className={`${inter.className} bg-gray-50 min-h-screen`}>
-        <Navbar />
-        <main className="max-w-5xl mx-auto px-4 py-10">
-          {children}
-        </main>
-        <footer className="text-center text-gray-400 text-sm py-6 border-t mt-10">
-          ⚡ TechBlog — Dibuat dengan Next.js & Tailwind CSS
-        </footer>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider theme={tema}>
+          <Notifications />
+          <Navbar>{children}</Navbar>
+        </MantineProvider>
       </body>
     </html>
   )
